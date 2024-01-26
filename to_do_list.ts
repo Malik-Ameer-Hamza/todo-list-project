@@ -106,7 +106,7 @@ async function todoStatus(todo: Todos): Promise<void> {
             todo.completed = true;
             const spinner = createSpinner(chalk.rgb(220, 180, 120)("updating status...")).start();
             await wait();
-            spinner.success({ text: chalk.greenBright(`Todo ${todo.todo} updated to ${todo.completed}. Successfully!`) });
+            spinner.success({ text: chalk.greenBright(`Todo ${todo.todo} updated to completed. Successfully!`) });
         }
     }
 }
