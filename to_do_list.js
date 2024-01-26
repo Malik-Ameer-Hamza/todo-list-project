@@ -1,10 +1,8 @@
+#!/usr/bin/env node
 import inquirer from "inquirer";
 import chalk from "chalk";
 import showBanner from "node-banner";
 import { createSpinner } from "nanospinner";
-// console.log(chalk.rgb(220, 110, 0)("3 Hello world"));
-// console.log(chalk.rgb(100, 220, 160)("6 Hello world"));
-// console.log(chalk.rgb(220, 180, 120)("7 Hello world"));
 let wait = (time = 2000) => new Promise((r) => setTimeout(r, time));
 let todos = [];
 async function showMyBanner() {
