@@ -5,8 +5,10 @@ import chalk from "chalk";
 import showBanner from "node-banner";
 import { createSpinner } from "nanospinner";
 
+// function for time delay
 let wait = (time = 2000) => new Promise((r) => setTimeout(r, time));
 
+// type of todos
 interface Todos {
     todo: string,
     completed: boolean
@@ -14,6 +16,7 @@ interface Todos {
 
 let todos: Todos[] = [];
 
+// function for banner
 async function showMyBanner() {
     await showBanner(
         "Todo List",
@@ -21,6 +24,7 @@ async function showMyBanner() {
     );
 }
 
+// function for prompting options 
 async function options(): Promise<{ userOption: string }> {
     let { userOption } = await inquirer.prompt({
         name: "userOption",
@@ -32,7 +36,7 @@ async function options(): Promise<{ userOption: string }> {
     return { userOption };
 }
 
-
+// function to add to do into the array
 async function addTodo(): Promise<{ input: string }> {
     let input: string;
     while (true) {
@@ -55,13 +59,10 @@ async function addTodo(): Promise<{ input: string }> {
         }
     }
 
-
     return { input }
-
-
 }
 
-
+// function to remove to do
 async function removeTodo() {
     if (!todos.length) {
         console.log(chalk.yellowBright("No todos found! Use the 'Add Todo' option to fill your list"));
@@ -90,6 +91,7 @@ async function removeTodo() {
 
 };
 
+// function to update the to do status 
 async function todoStatus(todo: Todos): Promise<void> {
 
     console.log(`Todo: ${todo.todo}`);
@@ -111,7 +113,7 @@ async function todoStatus(todo: Todos): Promise<void> {
     }
 }
 
-
+// function to display to do and prompting for todo status
 async function displayTodo() {
     if (!todos.length) {
         console.log(chalk.yellowBright("No todos found! Use the 'Add Todo' option to fill your list"));
@@ -133,7 +135,7 @@ async function displayTodo() {
 
 }
 
-
+// function to prompt if user want to exit or not
 async function exit(): Promise<boolean> {
     let { playAgain } = await inquirer.prompt({
         name: "playAgain",
@@ -144,6 +146,7 @@ async function exit(): Promise<boolean> {
     return playAgain
 }
 
+// Main logic function
 (async function todoFunction() {
     await showMyBanner();
     await wait(1000);

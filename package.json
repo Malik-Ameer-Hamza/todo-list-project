@@ -1,8 +1,8 @@
 {
-  "name": "ameer_todo_list",
-  "version": "1.0.1",
+  "name": "ameer-todo-app",
+  "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "to_do_list.js",
   "type": "module",
   "bin" : "./to_do_list.js",
   "scripts": {
